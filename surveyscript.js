@@ -98,22 +98,21 @@ let currentPage = 0;
       const responseText = await response.text();
 
 
-    if (response.ok) {
-      alert("✅ Erfolgreich gesendet!");
+  if (response.ok) {
+    alert("✅ Erfolgreich gesendet!");
+    location.reload();
+  } else {
+    // Bekannten Elasticsearch-Client-Bug abfangen (kommt oft bei Status 201 mit Parsing-Fehler)
+    if (response.status === 201 && responseText.includes("Unable to parse response body for Response")) {
+      console.warn("⚠️ Bekannter Elasticsearch-Parse-Fehler ignoriert.");
+      alert("✅ Daten gespeichert (trotz technischer Meldung).");
       location.reload();
     } else {
-      // Spezielle Behandlung für bekannten Elasticsearch-Fehler
-      if (responseText.includes("Unable to parse response body for Response") && response.status === 201) {
-        console.warn("⚠️ Bekannter Parse-Fehler ignoriert (Daten vermutlich gespeichert).");
-        alert("✅ Gespeichert – kleiner technischer Fehler wurde ignoriert.");
-        location.reload();
-      } else {
-        console.error("❌ Fehler vom Server:", responseText);
-        alert("❌ Serverfehler:\n" + responseText);
-      }
+      console.error("❌ Fehler vom Server:", responseText);
+      alert("❌ Serverfehler:\n" + responseText);
     }
-  } catch (err) {
-    console.error("❌ Netzwerkfehler:", err);
-    alert("❌ Netzwerkfehler:\n" + err.message);
   }
-});
+} catch (err) {
+  console.error("❌ Netzwerkfehler:", err);
+  alert("❌ Netzwerkfehler:\n" + err.message);
+}
