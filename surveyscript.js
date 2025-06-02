@@ -97,13 +97,23 @@ let currentPage = 0;
 
       const responseText = await response.text();
 
-      if (response.ok) {
-        alert("✅ Erfolgreich gesendet!");
+
+    if (response.ok) {
+      alert("✅ Erfolgreich gesendet!");
+      location.reload();
+    } else {
+      // Spezielle Behandlung für bekannten Elasticsearch-Fehler
+      if (responseText.includes("Unable to parse response body for Response") && response.status === 201) {
+        console.warn("⚠️ Bekannter Parse-Fehler ignoriert (Daten vermutlich gespeichert).");
+        alert("✅ Gespeichert – kleiner technischer Fehler wurde ignoriert.");
         location.reload();
       } else {
-        alert("❌ Fehler vom Server:\n" + responseText);
+        console.error("❌ Fehler vom Server:", responseText);
+        alert("❌ Serverfehler:\n" + responseText);
       }
-    } catch (err) {
-      alert("❌ Netzwerkfehler:\n" + err.message);
     }
-  });
+  } catch (err) {
+    console.error("❌ Netzwerkfehler:", err);
+    alert("❌ Netzwerkfehler:\n" + err.message);
+  }
+});

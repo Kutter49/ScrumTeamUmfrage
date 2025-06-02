@@ -59,7 +59,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Umfrage zur Teamperformance im aktuellen Sprint📊</h1>
+    <h1>Umfrage zur Teamperformance im aktuellen Sprint (05.06.202)📊</h1>
 
     <form id="surveyForm">
 
@@ -70,11 +70,8 @@
             <h3>Von jedem Teammitglied auszufüllen</h3>
 
 
-
-
-
-            <label for="teamSelect" name="team_name">Bitte wähle dein Team:</label>
-            <select id="teamSelect">
+            <label for="teamSelect">Bitte wähle dein Team:</label>
+            <select id="teamSelect" name="team_name" required>
                 <option value="">-- Team wählen --</option>
                 <option value="swen2-01-25">swen2-01-25</option>
                 <option value="swen2-02-25">swen2-02-25</option>
@@ -84,6 +81,7 @@
                 <option value="swen2-06-25">swen2-06-25</option>
             </select>
 
+            <p></p>
 
             <label for="worker">Dein Name:</label>
             <input id="worker" name="worker" type="text" required>
@@ -92,14 +90,14 @@
             <label for="sprint">Sprint Nummer:</label>
             <input id="sprint" type="number" required>
 
-            <label for="officehours">Stunden im Büro (0–80):</label>
+            <label for="officehours">Wie viele Stunden hast du diesen Sprint im Büro gearbeitet? (0 - 80)</label>
             <input id="officehours" type="number" min="0" max="80" required>
 
-            <label for="worklocations">Standorte (1–5):</label>
+            <label for="worklocations">Von wie vielen Standorten hast du diesen Sprint aus gearbeitet? (1–5)</label>
             <input id="worklocations" type="number" min="1" max="5" required>
 
             <fieldset>
-                <legend><strong>Kommunikationskanäle:</strong></legend>
+                <legend><strong>Mit welchen Kommunikationskanälen hast du kommuniziert?:</strong></legend>
                 <label><input type="checkbox" name="channelcount" value="MS Teams"> MS Teams</label>
                 <label><input type="checkbox" name="channelcount" value="Discord"> Discord</label>
                 <label><input type="checkbox" name="channelcount" value="Slack"> Slack</label>
@@ -111,43 +109,35 @@
             <p></p>
 
             <label>Wie viel Spaß hast du beim arbeiten diesen Sprint gehabt?</label>
-            <label><input type="radio" name="fun_level" value="1" required> 😞 Gar keinen</label>
-            <label><input type="radio" name="fun_level" value="2"> 😕 Wenig</label>
-            <label><input type="radio" name="fun_level" value="3"> 😐 Neutral</label>
-            <label><input type="radio" name="fun_level" value="4"> 🙂 Viel</label>
-            <label><input type="radio" name="fun_level" value="5"> 😄 Sehr viel</label>
+            <label><input type="radio" name="fun_level" value="1" required> Gar keinen 😞</label>
+            <label><input type="radio" name="fun_level" value="2"> Wenig 😕</label>
+            <label><input type="radio" name="fun_level" value="3">  Neutral 😐</label>
+            <label><input type="radio" name="fun_level" value="4">  Viel 🙂</label>
+            <label><input type="radio" name="fun_level" value="5">  Sehr viel 😄</label>
 
             <p></p>
 
             <label>Wie motiviert warst du im letzten Sprint zu arbeiten?</label>
-            <label><input type="radio" name="team_motivation" value="1" required> 😞 Gar nicht</label>
-            <label><input type="radio" name="team_motivation" value="2"> 😕 Wenig</label>
-            <label><input type="radio" name="team_motivation" value="3"> 😐 Neutral</label>
-            <label><input type="radio" name="team_motivation" value="4"> 🙂 sehr </label>
-            <label><input type="radio" name="team_motivation" value="5"> 😄 Unglaublich</label>
+            <label><input type="radio" name="team_motivation" value="1" required> Gar nicht 😞 </label>
+            <label><input type="radio" name="team_motivation" value="2">  Wenig 😕</label>
+            <label><input type="radio" name="team_motivation" value="3">  Neutral 😐</label>
+            <label><input type="radio" name="team_motivation" value="4">  sehr  🙂</label>
+            <label><input type="radio" name="team_motivation" value="5">  Unglaublich 😄</label>
 
             <p></p>
 
             <fieldset>
-                <legend><strong>🧠 Wie psychisch wohl fühlst du dich aktuell im Scrum-Team?</strong></legend>
+                <legend><strong>Wie wohl fühlst du dich aktuell im Scrum-Team?</strong></legend>
 
-                <div>
-                    <input type="radio" id="mw1" name="mental_wellbeing" value="1" required>
-                    <label for="mw1">Gar nicht wohl</label><br>
-
-                    <input type="radio" id="mw2" name="mental_wellbeing" value="2">
-                    <label for="mw2">Eher unwohl</label><br>
-
-                    <input type="radio" id="mw3" name="mental_wellbeing" value="3">
-                    <label for="mw3">Neutral</label><br>
-
-                    <input type="radio" id="mw4" name="mental_wellbeing" value="4">
-                    <label for="mw4">Eher wohl</label><br>
-
-                    <input type="radio" id="mw5" name="mental_wellbeing" value="5">
-                    <label for="mw5">Sehr wohl</label>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label><input type="radio" id="mw1" name="mental_wellbeing" value="1" required> Gar nicht wohl</label>
+                    <label><input type="radio" id="mw2" name="mental_wellbeing" value="2"> Eher unwohl</label>
+                    <label><input type="radio" id="mw3" name="mental_wellbeing" value="3"> Neutral</label>
+                    <label><input type="radio" id="mw4" name="mental_wellbeing" value="4"> Eher wohl</label>
+                    <label><input type="radio" id="mw5" name="mental_wellbeing" value="5"> Sehr wohl</label>
                 </div>
 
+                <p></p>
 
                 <label for="mental_comments">Möchtest du etwas dazu sagen? (optional)</label><br>
                 <textarea id="mental_comments" name="mental_comments" rows="4" cols="50"
@@ -158,23 +148,23 @@
 
             <label>Wie viel Erfahrung hast du mit agilen Methoden (z. B. Scrum, Kanban)?</label>
 
-            <label><input type="radio" name="agile_experience" value="0" required> 🐣 Keine Erfahrung</label>
-            <label><input type="radio" name="agile_experience" value="1"> 📘 Erste Berührungspunkte (z. B.
-                Schulung)</label>
-            <label><input type="radio" name="agile_experience" value="2"> 🧪 < 1 Jahr Praxis</label>
-            <label><input type="radio" name="agile_experience" value="3"> 🛠 1–2 Jahre Praxiserfahrung</label>
-            <label><input type="radio" name="agile_experience" value="4"> 🚀 Mehr als 2 Jahre Erfahrung</label>
-            <label><input type="radio" name="agile_experience" value="5"> 🧠 Agile Methoden sind für mich
-                Standard</label>
+            <label><input type="radio" name="agile_experience" value="0" required>  Keine Erfahrung 🐣</label>
+            <label><input type="radio" name="agile_experience" value="1"> Erste Berührungspunkte (z. B.
+                Schulung)  📘</label>
+            <label><input type="radio" name="agile_experience" value="2">  < 1 Jahr Praxis 🧪</label>
+            <label><input type="radio" name="agile_experience" value="3">1–2 Jahre Praxiserfahrung  🛠 </label>
+            <label><input type="radio" name="agile_experience" value="4">  Mehr als 2 Jahre Erfahrung 🚀</label>
+            <label><input type="radio" name="agile_experience" value="5"> Agile Methoden sind für mich
+                Standard  🧠</label>
 
             <p></p>
 
             <label>Wie sehr kannst du dich auf deine Teampartner verlassen?</label>
-            <label><input type="radio" name="trust_in_team" value="1" required> 😞 Gar nicht</label>
-            <label><input type="radio" name="trust_in_team" value="2"> 😕 Eher nicht</label>
-            <label><input type="radio" name="trust_in_team" value="3"> 😐 Teils/teils</label>
-            <label><input type="radio" name="trust_in_team" value="4"> 🙂 Meistens ja</label>
-            <label><input type="radio" name="trust_in_team" value="5"> 😄 Voll und ganz</label>
+            <label><input type="radio" name="trust_in_team" value="1" required>  Gar nicht 😞</label>
+            <label><input type="radio" name="trust_in_team" value="2">  Eher nicht 😕</label>
+            <label><input type="radio" name="trust_in_team" value="3">  Teils/teils  😐</label>
+            <label><input type="radio" name="trust_in_team" value="4"> Meistens ja  🙂 </label>
+            <label><input type="radio" name="trust_in_team" value="5">  Voll und ganz 😄</label>
 
 
             <button type="button" onclick="nextPage()">Weiter</button>
@@ -200,10 +190,10 @@
         <!-- Scrum Master Seite -->
         <div class="page" id="page3">
             <h2>🧑‍🏫 Scrum Master</h2>
-            <label for="cross_team_meetings">Meetings mit anderen Teams:</label>
+            <label for="cross_team_meetings">Wie viele Meetings gab es mit anderen Teams?:</label>
             <input id="cross_team_meetings" type="number" min="0" max="20">
 
-            <label for="team_events">Team Events in diesem Sprint:</label>
+            <label for="team_events">Wie viele Team Events gab es in diesem Sprint:</label>
             <input id="team_events" type="number" min="0" max="20">
 
             <label for="team_size">Aus wie vielen Leuten besteht das Scrum Team?</label>
@@ -246,29 +236,29 @@
             <p></p>
 
             <fieldset>
-                <legend><strong>🎯 Wie konzentriert konntest du diesen Sprint arbeiten?</strong></legend>
+                <legend><strong> Wie konzentriert konntest du diesen Sprint arbeiten?</strong></legend>
 
-                <label><input type="radio" name="focus_level" value="1"> 😞 Gar nicht konzentriert</label><br>
-                <label><input type="radio" name="focus_level" value="2"> 😕 Eher abgelenkt</label><br>
-                <label><input type="radio" name="focus_level" value="3"> 😐 Durchschnittlich</label><br>
-                <label><input type="radio" name="focus_level" value="4"> 🙂 Meistens konzentriert</label><br>
-                <label><input type="radio" name="focus_level" value="5"> 😄 Voll konzentriert</label><br><br>
+                <label><input type="radio" name="focus_level" value="1">  Gar nicht konzentriert 😞</label><br>
+                <label><input type="radio" name="focus_level" value="2"> Eher abgelenkt 😕 </label><br>
+                <label><input type="radio" name="focus_level" value="3"> Durchschnittlich 😐 </label><br>
+                <label><input type="radio" name="focus_level" value="4"> Meistens konzentriert 🙂 </label><br>
+                <label><input type="radio" name="focus_level" value="5"> Voll konzentriert 😄</label><br><br>
             </fieldset>
 
             <p></p>
 
             <fieldset>
-                <legend><strong>🔍 Wie läuft aktuell die Vorstellung der Features in euren Code Reviews ab?</strong>
+                <legend><strong> Wie läuft aktuell die Vorstellung der Features in euren Code Reviews ab?</strong>
                 </legend>
 
                 <label><input type="radio" name="review_style" value="own">
-                    Ich stelle **meine eigenen** Features im Review vor.</label><br>
+                    Ich stelle meine eigenen Features im Review vor.</label><br>
 
                 <label><input type="radio" name="review_style" value="peer">
-                    Eine andere Person stellt **meine Features** vor (z. B. Peer übernimmt das Review).</label><br>
+                    Eine andere Person stellt meine Features vor (z. B. Peer übernimmt das Review).</label><br>
 
                 <label><input type="radio" name="review_style" value="mixed">
-                    Es ist **gemischt** – mal so, mal so.</label><br>
+                    Es ist gemischt – mal so, mal so.</label><br>
             </fieldset>
 
             <p></p>
