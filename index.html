@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Team Metrics</title>
+    <style>
+        body {
+          font-family: 'Segoe UI', sans-serif;
+          background: #f9f9f9;
+          padding: 2rem;
+          display: flex;
+          justify-content: center;
+        }
+
+        .container {
+          background: white;
+          padding: 2rem 3rem;
+          border-radius: 12px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          max-width: 500px;
+        }
+
+
+        .page { display: none; }
+        .page.active { display: block; }
+
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+          width: 100%;
+          padding: 0.6rem;
+          margin-bottom: 1.2rem;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          font-size: 1rem;
+        }
+
+        button {
+          background-color: #007acc;
+          color: white;
+          border: none;
+          padding: 0.8rem 1.5rem;
+          font-size: 1rem;
+          border-radius: 6px;
+          cursor: pointer;
+          margin-top: 1rem;
+        }
+
+        button:hover {
+          background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Umfrage zur Teamperformance im aktuellen Sprint📊</h1>
+
+    <form id="surveyForm">
+
+        <!-- Ganze Team Seite -->
+        <div class="page active" id="page1">
+
+            <h2>👥 Team</h2>
+            <h3>Von jedem Teammitglied auszufüllen</h3>
+
+
+
+
+
+            <label for="teamSelect" name="team_name">Bitte wähle dein Team:</label>
+            <select id="teamSelect">
+                <option value="">-- Team wählen --</option>
+                <option value="swen2-01-25">swen2-01-25</option>
+                <option value="swen2-02-25">swen2-02-25</option>
+                <option value="swen2-03-25">swen2-03-25</option>
+                <option value="swen2-04-25">swen2-04-25</option>
+                <option value="swen2-05-25">swen2-05-25</option>
+                <option value="swen2-06-25">swen2-06-25</option>
+            </select>
+
+
+            <label for="worker">Dein Name:</label>
+            <input id="worker" name="worker" type="text" required>
+
+
+            <label for="sprint">Sprint Nummer:</label>
+            <input id="sprint" type="number" required>
+
+            <label for="officehours">Stunden im Büro (0–80):</label>
+            <input id="officehours" type="number" min="0" max="80" required>
+
+            <label for="worklocations">Standorte (1–5):</label>
+            <input id="worklocations" type="number" min="1" max="5" required>
+
+            <fieldset>
+                <legend><strong>Kommunikationskanäle:</strong></legend>
+                <label><input type="checkbox" name="channelcount" value="MS Teams"> MS Teams</label>
+                <label><input type="checkbox" name="channelcount" value="Discord"> Discord</label>
+                <label><input type="checkbox" name="channelcount" value="Slack"> Slack</label>
+                <label><input type="checkbox" name="channelcount" value="E-Mail"> E-Mail</label>
+                <label><input type="checkbox" name="channelcount" value="Persönlich"> Persönlich</label>
+                <label><input type="checkbox" name="channelcount" value="Sonstige"> Sonstige</label>
+            </fieldset>
+
+            <p></p>
+
+            <label>Wie viel Spaß hast du beim arbeiten diesen Sprint gehabt?</label>
+            <label><input type="radio" name="fun_level" value="1" required> 😞 Gar keinen</label>
+            <label><input type="radio" name="fun_level" value="2"> 😕 Wenig</label>
+            <label><input type="radio" name="fun_level" value="3"> 😐 Neutral</label>
+            <label><input type="radio" name="fun_level" value="4"> 🙂 Viel</label>
+            <label><input type="radio" name="fun_level" value="5"> 😄 Sehr viel</label>
+
+            <p></p>
+
+            <label>Wie motiviert warst du im letzten Sprint zu arbeiten?</label>
+            <label><input type="radio" name="team_motivation" value="1" required> 😞 Gar nicht</label>
+            <label><input type="radio" name="team_motivation" value="2"> 😕 Wenig</label>
+            <label><input type="radio" name="team_motivation" value="3"> 😐 Neutral</label>
+            <label><input type="radio" name="team_motivation" value="4"> 🙂 sehr </label>
+            <label><input type="radio" name="team_motivation" value="5"> 😄 Unglaublich</label>
+
+            <p></p>
+
+            <fieldset>
+                <legend><strong>🧠 Wie psychisch wohl fühlst du dich aktuell im Scrum-Team?</strong></legend>
+
+                <div>
+                    <input type="radio" id="mw1" name="mental_wellbeing" value="1" required>
+                    <label for="mw1">Gar nicht wohl</label><br>
+
+                    <input type="radio" id="mw2" name="mental_wellbeing" value="2">
+                    <label for="mw2">Eher unwohl</label><br>
+
+                    <input type="radio" id="mw3" name="mental_wellbeing" value="3">
+                    <label for="mw3">Neutral</label><br>
+
+                    <input type="radio" id="mw4" name="mental_wellbeing" value="4">
+                    <label for="mw4">Eher wohl</label><br>
+
+                    <input type="radio" id="mw5" name="mental_wellbeing" value="5">
+                    <label for="mw5">Sehr wohl</label>
+                </div>
+
+
+                <label for="mental_comments">Möchtest du etwas dazu sagen? (optional)</label><br>
+                <textarea id="mental_comments" name="mental_comments" rows="4" cols="50"
+                          placeholder="Dein Feedback …"></textarea>
+            </fieldset>
+
+            <p></p>
+
+            <label>Wie viel Erfahrung hast du mit agilen Methoden (z. B. Scrum, Kanban)?</label>
+
+            <label><input type="radio" name="agile_experience" value="0" required> 🐣 Keine Erfahrung</label>
+            <label><input type="radio" name="agile_experience" value="1"> 📘 Erste Berührungspunkte (z. B.
+                Schulung)</label>
+            <label><input type="radio" name="agile_experience" value="2"> 🧪 < 1 Jahr Praxis</label>
+            <label><input type="radio" name="agile_experience" value="3"> 🛠 1–2 Jahre Praxiserfahrung</label>
+            <label><input type="radio" name="agile_experience" value="4"> 🚀 Mehr als 2 Jahre Erfahrung</label>
+            <label><input type="radio" name="agile_experience" value="5"> 🧠 Agile Methoden sind für mich
+                Standard</label>
+
+            <p></p>
+
+            <label>Wie sehr kannst du dich auf deine Teampartner verlassen?</label>
+            <label><input type="radio" name="trust_in_team" value="1" required> 😞 Gar nicht</label>
+            <label><input type="radio" name="trust_in_team" value="2"> 😕 Eher nicht</label>
+            <label><input type="radio" name="trust_in_team" value="3"> 😐 Teils/teils</label>
+            <label><input type="radio" name="trust_in_team" value="4"> 🙂 Meistens ja</label>
+            <label><input type="radio" name="trust_in_team" value="5"> 😄 Voll und ganz</label>
+
+
+            <button type="button" onclick="nextPage()">Weiter</button>
+
+
+        </div>
+
+        <!-- Product Owner Seite -->
+        <div class="page" id="page2">
+            <h2>🧑‍💼 Product Owner</h2>
+            <h3>Vom Product Owner auszufüllen</h3>
+            <label for="customer_contact">Wie oft ab es persönlichen Kontakt mit dem Kunden in diesem Sprint?:</label>
+            <input id="customer_contact" type="number" min="0" max="20">
+
+            <label for="customer_feedback_subjectiv">Wie oft hat Dir der Kunde in diesem Sprint Feedback zu dem Produkt
+                gegeben?</label>
+            <input id="customer_feedback_subjectiv" type="number" min="0" max="20">
+
+            <button type="button" onclick="prevPage()">Zurück</button>
+            <button type="button" onclick="nextPage()">Weiter</button>
+        </div>
+
+        <!-- Scrum Master Seite -->
+        <div class="page" id="page3">
+            <h2>🧑‍🏫 Scrum Master</h2>
+            <label for="cross_team_meetings">Meetings mit anderen Teams:</label>
+            <input id="cross_team_meetings" type="number" min="0" max="20">
+
+            <label for="team_events">Team Events in diesem Sprint:</label>
+            <input id="team_events" type="number" min="0" max="20">
+
+            <label for="team_size">Aus wie vielen Leuten besteht das Scrum Team?</label>
+            <input id="team_size" type="number" min="0" max="20">
+
+            <p></p>
+            <fieldset>
+                <legend><strong>🔁 Retrospektive des aktuellen Sprints</strong></legend>
+
+                <label for="retro_good">Wie viele Punkte wurden als <strong>gut</strong> bewertet?</label>
+                <input id="retro_good" type="number" min="0" max="50">
+
+                <label for="retro_bad">Wie viele Punkte wurden als <strong>problematisch</strong> oder
+                    <strong>negativ</strong> besprochen?</label>
+                <input id="retro_bad" type="number" min="0" max="50">
+
+                <label for="retro_issues">Wie viele konkrete <strong>Probleme</strong> wurden identifiziert?</label>
+                <input id="retro_issues" type="number" min="0" max="50">
+
+                <label for="retro_action_items">Wie viele <strong>Action Items</strong> wurden für den nächsten Sprint
+                    formuliert?</label>
+                <input id="retro_action_items" type="number" min="0" max="50">
+            </fieldset>
+
+            <button type="button" onclick="prevPage()">Zurück</button>
+            <button type="button" onclick="nextPage()">Weiter</button>
+        </div>
+
+        <!-- Developer Seite -->
+        <div class="page" id="page4">
+
+            <h2> Developer</h2>
+            <h3>Von den Developern auszufüllen</h3>
+
+            <label for="refactoring_hours">Wie viele Stunden hast du in diesem Sprint mit Refactoring / Aufräumen
+                verbracht?</label>
+            <input id="refactoring_hours" type="number" min="0" max="80">
+
+
+            <p></p>
+
+            <fieldset>
+                <legend><strong>🎯 Wie konzentriert konntest du diesen Sprint arbeiten?</strong></legend>
+
+                <label><input type="radio" name="focus_level" value="1"> 😞 Gar nicht konzentriert</label><br>
+                <label><input type="radio" name="focus_level" value="2"> 😕 Eher abgelenkt</label><br>
+                <label><input type="radio" name="focus_level" value="3"> 😐 Durchschnittlich</label><br>
+                <label><input type="radio" name="focus_level" value="4"> 🙂 Meistens konzentriert</label><br>
+                <label><input type="radio" name="focus_level" value="5"> 😄 Voll konzentriert</label><br><br>
+            </fieldset>
+
+            <p></p>
+
+            <fieldset>
+                <legend><strong>🔍 Wie läuft aktuell die Vorstellung der Features in euren Code Reviews ab?</strong>
+                </legend>
+
+                <label><input type="radio" name="review_style" value="own">
+                    Ich stelle **meine eigenen** Features im Review vor.</label><br>
+
+                <label><input type="radio" name="review_style" value="peer">
+                    Eine andere Person stellt **meine Features** vor (z. B. Peer übernimmt das Review).</label><br>
+
+                <label><input type="radio" name="review_style" value="mixed">
+                    Es ist **gemischt** – mal so, mal so.</label><br>
+            </fieldset>
+
+            <p></p>
+
+
+            <button type="button" onclick="prevPage()">Zurück</button>
+            <button type="submit">Absenden ✔</button>
+
+        </div>
+
+
+    </form>
+</div>
+<script src="surveyscript.js"></script>
+</body>
+</html>
