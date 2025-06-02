@@ -5,6 +5,7 @@ let currentPage = 0;
     pages[currentPage].classList.remove("active");
     currentPage = Math.min(pages.length - 1, currentPage + 1);
     pages[currentPage].classList.add("active");
+    console.log("Aktuelle Seite:", currentPage);
   } //Funktion für nächste Seite
 
   function prevPage() {
@@ -36,11 +37,9 @@ let currentPage = 0;
     const focusLevelInput = document.querySelector('input[name="focus_level"]:checked');
     const focus_level = focusLevelInput ? parseInt(focusLevelInput.value) : null;
     const team_name = document.getElementById("teamSelect").value;
-
-
     const reviewStyleInput = document.querySelector('input[name="review_style"]:checked');
     const review_style = reviewStyleInput ? reviewStyleInput.value : null;
-
+    
     const retro_result = {
         good: parseInt(document.getElementById("retro_good").value) || 0,
         bad: parseInt(document.getElementById("retro_bad").value) || 0,
@@ -48,11 +47,9 @@ let currentPage = 0;
         action_items: parseInt(document.getElementById("retro_action_items").value) || 0
     };
 
-
     const s = hours / 80;
     const l = 1 - ((worklocations - 1) / 4);
     const colocationIndex = Math.round((s * 0.6 + l * 0.4) * 1000) / 10;
-
     const checkedBoxes = document.querySelectorAll('input[name="channelcount"]:checked');
     const communication_channels = Array.from(checkedBoxes).map(cb => cb.value);
 
@@ -96,9 +93,7 @@ let currentPage = 0;
                        });
 
       const responseText = await response.text();
-
-
-  if (response.ok) {
+    if (response.ok) {
     alert("✅ Erfolgreich gesendet!");
     location.reload();
   } else {
@@ -115,4 +110,5 @@ let currentPage = 0;
 } catch (err) {
   console.error("❌ Netzwerkfehler:", err);
   alert("❌ Netzwerkfehler:\n" + err.message);
-}
+  }
+});
