@@ -84,7 +84,7 @@ let currentPage = 0;
     try {
       console.log("Abgesendete Daten:", result);
 
-      const response = await fetch("https://a154-2001-7c0-5f0-f206-00-1004.ngrok-free.app /api/survey/submit", {
+      const response = await fetch("https://a154-2001-7c0-5f0-f206-00-1004.ngrok-free.app/api/survey/submit", {
                          method: "POST",
                          headers: {
                            "Content-Type": "application/json"
