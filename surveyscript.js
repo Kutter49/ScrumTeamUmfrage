@@ -39,6 +39,7 @@ let currentPage = 0;
     const team_name = document.getElementById("teamSelect").value;
     const reviewStyleInput = document.querySelector('input[name="review_style"]:checked');
     const review_style = reviewStyleInput ? reviewStyleInput.value : null;
+    const shared_vision = parseInt(document.getElementById("shared_vision_slider").value);
     
     const retro_result = {
         good: parseInt(document.getElementById("retro_good").value) || 0,
@@ -77,7 +78,8 @@ let currentPage = 0;
       focus_level,
       review_style,
       retro_result,
-      team_name
+      team_name,
+      shared_vision
     };
 
 

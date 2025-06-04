@@ -167,9 +167,16 @@
             <label><input type="radio" name="trust_in_team" value="5">  Voll und ganz 😄</label>
 
 
+            <p></p>
+
+            <label for="shared_vision_slider">Wie sehr hast du das Gefühl, dass du die gleiche Vision wie dein Team teilst?</label>
+            <input type="range" id="shared_vision_slider" name="shared_vision" min="0" max="5" step="1" value="3" oninput="document.getElementById('shared_vision_value').textContent = this.value">
+            <p>Wert: <span id="shared_vision_value">3</span> / 5</p>
+
+
+
+
             <button type="button" onclick="nextPage()">Weiter</button>
-
-
         </div>
 
         <!-- Product Owner Seite -->
