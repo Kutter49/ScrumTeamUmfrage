@@ -86,7 +86,7 @@ let currentPage = 0;
     try {
       console.log("Abgesendete Daten:", result);
 
-      const response = await fetch("https://8dce-2001-7c0-5f0-f200-00-1006.ngrok-free.app/api/survey/submit", {
+      const response = await fetch("https://75d6-2001-7c0-5f0-f204-00-1004.ngrok-free.app/api/survey/submit", {
                          method: "POST",
                          headers: {
                            "Content-Type": "application/json"
@@ -106,7 +106,7 @@ let currentPage = 0;
       location.reload();
     } else {
       console.error("❌ Fehler vom Server:", responseText);
-      alert("❌ Serverfehler:\n" + responseText);
+      alert("✅  Serverfehler:\n" + responseText);
     }
   }
 } catch (err) {
